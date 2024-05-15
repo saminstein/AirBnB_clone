@@ -32,7 +32,7 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 
 Your shell should work like this in interactive mode:
 
-```bash
+```
 $ ./console.py
 (hbnb) help
 
@@ -48,7 +48,7 @@ $
 
 But also in non-interactive mode: (like the Shell project in C)
 
-```bash
+```
 $ echo "help" | ./console.py
 (hbnb)
 
@@ -68,5 +68,6 @@ Documented commands (type help <topic>):
 EOF  help  quit
 (hbnb)
 $
+```
 
 All tests should also pass in non-interactive mode: `$ echo "python3 -m unittest discover tests" | bash`
