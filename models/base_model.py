@@ -26,7 +26,8 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         '''
-        initializes attributes: id, created_at, updated_at
+        initializes attributes: id, created_at,
+        updated_at
         '''
 
         dateformat = '%Y-%m-%dT%H:%M:%S.%f'
