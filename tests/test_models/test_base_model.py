@@ -5,6 +5,7 @@ import uuid
 from models.base_model import BaseModel
 from datetime import datetime
 
+
 class TestBaseModel(unittest.TestCase):
     ''' tests for the base model class '''
 
@@ -53,8 +54,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_created_at_datetime(self):
         '''
-        checks if created_at attr is set to the 
-        current datetime the instance was created 
+        checks if created_at attr is set to th
+        e current datetime the instance was cr        eated
         '''
 
         bm = BaseModel()
@@ -97,6 +98,6 @@ class TestBaseModel(unittest.TestCase):
         bm.save()
         self.assertLess(f_updated_at, bm.updated_at)
 
+
 if __name__ == '__main__':
     unittest.main()
-
