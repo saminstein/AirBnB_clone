@@ -32,17 +32,17 @@ class BaseModel:
 
         dateformat = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
-            if "__class__" == key:
-                pass
-            if "created_at" == key:
-                self.created_at = datetime.strptime(
-                        kwargs["created_at"], dateformat)
-            if "updated_at" == key:
-                self.updated_at = datetime.strptime(
-                        kwargs["updated_at"], dateformat)
-
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if "__class__" == key:
+                    continue
+                if "created_at" == key:
+                    self.created_at = datetime.strptime(
+                        kwargs["created_at"], dateformat)
+                elif "updated_at" == key:
+                    self.updated_at = datetime.strptime(
+                        kwargs["updated_at"], dateformat)
+                else:
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
