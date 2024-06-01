@@ -5,18 +5,39 @@ file storage module
 
 import json
 from os import path
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.amenity import Amenity
+from models.city import City
+from models.review import Review
+from models.state import State
+
 
 class FileStorage:
     '''
-    serializes instances to a JSON file and deseri    alizes JSON file to instances
+    serializes instances to a JSON file and
+    deserializes JSON file to instances
     Attributes:
         __filepath(str): path to the json file
         where the content will be stored
         __objects(dict): This will store all instance
         data
+        class_dict(str): This is the dict of all
+        the classes
     '''
     __file_path = 'file.json'
     __objects = {}
+
+    class_dict = {
+            "BaseModel": BaseModel,
+            "User": User,
+            "Place": Place,
+            "Amenity": Amenity,
+            "City": City,
+            "Review": Review,
+            "State": State
+            }
 
     def all(self):
         '''
@@ -43,18 +64,20 @@ class FileStorage:
         json_dict = {}
         for k, v in self.__objects.items():
             json_dict[k] = v.to_dict()
-        with open(self.__objects, mode='w', encoding='utf-8') as f:
+        with open(self.__file_path, mode='w', encoding='utf-8') as f:
             json.dump(json_dict, f)
 
     def reload(self):
         '''
-        deserializes the JSON file to __objects
+        des6erializes the JSON file to __objects
         '''
-        if path.exists(self.__file_path):
-            with open(self.__file_path, mode='r', encoding='utf-8') as f:
-                json_dict = json.load(f)
-            for k, v in json_dict.items():
-                obj = self.class_dict[value['__class__']](**value)
-                self.__objects[key] = obj
-        
+        try:
 
+            if path.exists(self.__file_path):
+                with open(self.__file_path, mode='r', encoding='utf-8') as f:
+                    json_dict = json.load(f)
+                for k, v in json_dict.items():
+                    obj = self.class_dict[v['__class__']](**v)
+                    self.__objects[k] = obj
+        except FileNotFoundError:
+            pass
