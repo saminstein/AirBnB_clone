@@ -66,6 +66,12 @@ class BaseModel:
 
         return '[{}] ({}) {}'.format(
                 self.__class__.__name__, self.id, self.__dict__)
+    def __repr__(self):
+        '''
+        returns a string representation of an obj
+        '''
+
+        return self.__str__()
 
     def save(self):
         '''
