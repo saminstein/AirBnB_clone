@@ -8,4 +8,14 @@ import cmd as c
 
 class HBNBCommand(c.Cmd):
     """
+    """
     prompt = "(hbnb) "
+
+    def do_prompt(self, line):
+        self.prompt = line
+
+    def do_EOF(self, line):
+        return True
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
