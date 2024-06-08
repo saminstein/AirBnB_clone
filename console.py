@@ -8,7 +8,7 @@ import os
 
 
 class HBNBCommand(c.Cmd):
-    """
+    """The HBNB commandline intepereter
     """
     prompt = "(hbnb) "
 
