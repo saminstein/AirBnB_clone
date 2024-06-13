@@ -5,12 +5,29 @@ This module defines the command interface that controls the console
 
 import cmd as c
 import os
+import uuid
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(c.Cmd):
     """implements the commandline intepereter
     """
     prompt = "(hbnb) "
+    valid_classes = {
+            'BaseModel',
+            'User',
+            'State',
+            'City',
+            'Amenity',
+            'Place',
+            'Review'
+            }
 
     def do_EOF(self, line):
         """exits the program when ctrl + d is
@@ -30,6 +47,37 @@ class HBNBCommand(c.Cmd):
         """
         pass
 
+    def do_create(self, line):
+        """Creates a new instance of BaseModel,
+        saves it (to the JSON file)
+        """
+        command = self.parseline(line)[0]
+        if command is None:
+            print('** class name is missing **')
 
+        elif command not in self.valid_classes:
+            print('** class doesn\'t exist **')
+
+        else:
+            my_in = BaseModel()
+            my_in.save()
+            print(my_in.id)
+
+    def do_show(self, line):
+        """prints the string representation of an
+        instance based on the class name and id
+        """
+
+        command = self.parseline(line)[0]
+        args = self.parseline(line)[1]
+
+        if command is None:
+            print('** class name missing **')
+
+        elif command not in self.valid_classes:
+            print('** class doesn\'t exist **')
+
+        elif args == None:
+            print('** instance id missing **')
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
