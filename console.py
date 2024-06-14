@@ -6,6 +6,7 @@ This module defines the command interface that controls the console
 import cmd as c
 import os
 import uuid
+import models
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -77,7 +78,19 @@ class HBNBCommand(c.Cmd):
         elif command not in self.valid_classes:
             print('** class doesn\'t exist **')
 
-        elif args == None:
+        elif args is None or len(args.split()) < 1:
             print('** instance id missing **')
+
+        else:
+            
+            id = args.split()[0]
+
+            key = f"{command}.{id}"
+            instance = models.storage.all().get(key)
+            if instance == None:
+                print('** no instance found **')
+            else:
+                print(instance)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
