@@ -7,6 +7,7 @@ import cmd as c
 import os
 import uuid
 import models
+import shlex
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -72,6 +73,9 @@ class HBNBCommand(c.Cmd):
         command = self.parseline(line)[0]
         args = self.parseline(line)[1]
 
+        print(f"Command: {command}")
+        print(f"Args: {args}")
+
         if command is None:
             print('** class name missing **')
 
@@ -82,27 +86,26 @@ class HBNBCommand(c.Cmd):
             print('** instance id missing **')
 
         else:
-            
             id = args.split()[0]
-
             key = f"{command}.{id}"
+
             instance = models.storage.all().get(key)
-            if instance == None:
+            if instance is None:
                 print('** no instance found **')
             else:
                 print(instance)
 
     def do_destroy(self, line):
-        """Deletes an instance based on the 
-        class name and id (save the change 
+        """Deletes an instance based on the
+        class name and id (save the change
         into the JSON file)
         """
 
-        command = self.parseline(line)[0] 
+        command = self.parseline(line)[0]
         args = self.parseline(line)[1]
 
         if command is None:
-            print('** class name missing **')
+            print('** class name missing **')6
 
         elif command not in self.valid_classes:
             print('** class doesn\'t exist **')
@@ -121,7 +124,7 @@ class HBNBCommand(c.Cmd):
 
     def do_all(self, line):
         """
-        Prints all string representation of all 
+        Prints all string representation of all
         instances based or not on the class name.
         """
 
@@ -137,13 +140,66 @@ class HBNBCommand(c.Cmd):
         elif command in self.valid_classes:
             for key, value in objs.items():
                 if command in key:
-                    list_objs.append(str(objs.items()))
+                    list_objs.append(str(value))
             print(list_objs)
 
         else:
             print('** class doesn\'t exist **')
 
+    def do_update(self, line):
+        """
+        Updates an instance based on the class            name and id
+        by adding or updating attributes (save
+        the change into the JS
+        ON file)
+        """
 
+        cmd = shlex.split(line)
+        cmd_size = len(cmd)
+
+        if cmd_size == 0:
+            print('** class name missing **')
+
+        elif cmd[0] not in self.valid_classes:
+            print('** class doesn\'t exist **')
+
+        elif cmd_size == 1:
+            print('** instance id missing **')
+
+        else:
+            class_name = cmd[0]
+            id = cmd[1]
+            key = f"{class_name}.{id}"
+            instance = models.storage.all().get(key)
+
+            if instance is None:
+                print('** no instance found **')
+
+            elif cmd_size == 2:
+                print('** attribute name missing **')
+
+            elif cmd_size == 3:
+                print('** value missing **')
+
+            else:
+                cmd[3] = self.convert_attr_val(cmd[3])
+                setattr(instance, cmd[2], cmd[3])
+                setattr(instance, 'update_at', datetime.now())
+                models.storage.save()
+
+    def convert_attr_val(self, value):
+        """
+        converts attribute value to the appropriat
+        e type
+        """
+
+        try:
+            if value.isdigit():
+                return int(value)
+            else:
+                return float(value)
+        except ValueError:
+            return value
 
 
 if __name__ == '__main__':

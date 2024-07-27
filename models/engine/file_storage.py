@@ -69,7 +69,7 @@ class FileStorage:
 
     def reload(self):
         '''
-        des6erializes the JSON file to __objects
+        deserializes the JSON file to __objects
         '''
         try:
 
