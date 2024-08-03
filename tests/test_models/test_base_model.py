@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This model defines the unittest cases for the BaseModel class
+"""
 
 import unittest
 import uuid
