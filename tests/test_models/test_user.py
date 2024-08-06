@@ -4,8 +4,7 @@ This model defines the unittest case for the User clasd
 """
 
 import unittest
-import uuid
-from datetime import datetime
+from models.base_model import BaseModel
 from models.user import User
 
 
