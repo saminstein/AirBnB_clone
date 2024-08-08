@@ -8,6 +8,7 @@ import unittest
 from models.base_model import BaseModel
 from models.state import State
 
+
 class TestState(unittest.TestCase):
     def setUp(self):
         ''' setup State instance to use for all test '''
@@ -35,6 +36,7 @@ class TestState(unittest.TestCase):
         self.assertEqual(self.state.name, '')
         self.state.name = "Edo"
         self.assertEqual(self.state.name, "Edo")
+
 
 if '__name__' == '__main__':
     unittest.main()
