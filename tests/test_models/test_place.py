@@ -8,6 +8,7 @@ import unittest
 from models.base_model import BaseModel
 from models.place import Place
 
+
 class TestPlace(unittest.TestCase):
     def setUp(self):
         '''
@@ -18,7 +19,7 @@ class TestPlace(unittest.TestCase):
 
     def test_inits(self):
         '''
-        tests place initialization 
+        tests place initialization
         '''
 
         self.assertIsInstance(self.place, Place)
@@ -146,6 +147,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(self.place.amenity_ids, [])
         self.place.amenity_ids = ['wifi', 'hot water']
         self.assertEqual(self.place.amenity_ids, ['wifi', 'hot water'])
+
 
 if __name__ == "__main__":
     unittest.main()
