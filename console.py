@@ -182,9 +182,6 @@ class HBNBCommand(c.Cmd):
             else:
                 cmd[3] = self.convert_attr_val(cmd[3])
                 setattr(instance, cmd[2], cmd[3])
-                '''
-                instance.updated_at = datetime.now
-                '''
                 setattr(instance, 'updated_at', datetime.now())
                 models.storage.save()
 
