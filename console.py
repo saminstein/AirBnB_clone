@@ -8,6 +8,7 @@ import os
 import uuid
 import models
 import shlex
+from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -116,7 +117,8 @@ class HBNBCommand(c.Cmd):
             if instance is None:
                 print('** no instance found **')
             else:
-                print(instance)
+                del models.storage.all()[key]
+                models.storage.save()
 
     def do_all(self, line):
         """
@@ -180,7 +182,10 @@ class HBNBCommand(c.Cmd):
             else:
                 cmd[3] = self.convert_attr_val(cmd[3])
                 setattr(instance, cmd[2], cmd[3])
-                setattr(instance, 'update_at', datetime.now())
+                '''
+                instance.updated_at = datetime.now
+                '''
+                setattr(instance, 'updated_at', datetime.now())
                 models.storage.save()
 
     def convert_attr_val(self, value):
