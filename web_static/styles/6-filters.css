@@ -41,14 +41,62 @@ section.filters .locations {
 .locations h3, .amenities h3 {
   font-weight: 600;
   font-size: 17px;
-  padding: 4px 0 0 18px;
+  padding: 4px 0 0 33px;
 }
 
 .locations h4, .amenities h4 {
   font-weight: 400;
   font-size: 14px;
-  padding: 0 18px;
+  padding: 0 33px;
   position: relative;
   bottom: 18px;
   line-height: 14px;
 }
+
+ul.popover {
+	background-color: #FAFAFA;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	position: relative;
+	padding: 20px;
+	bottom: 22px;
+	display: none;
+	z-index: 1;
+}
+
+.locations:hover > .popover {
+  display: block;
+}
+
+.amenities:hover > .popover {
+  display: block;
+}
+
+.popover h2 {
+  font-size: 16px;
+  margin: 6px 3px;
+}
+
+.popover li {
+  list-style: none;
+  font-size: 16px;
+}
+
+.popover h2 {
+  margin-right: 14px;
+  padding-top: 14px;
+}
+
+.popover ul > li {
+  padding-bottom: 12px;
+  padding-right: 30px;
+  line-height: 9px;
+}
+
+.amenities .popover li {
+  margin: 12px 12px;
+  line-height: 9px;
+  cursor: pointer;
+}
+
+
