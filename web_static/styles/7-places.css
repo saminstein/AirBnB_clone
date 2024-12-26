@@ -19,3 +19,7 @@ article  {
   border-radius: 4px;
   text-align: center;
 }
+
+article h2 {
+  margin: 4px;
+}
