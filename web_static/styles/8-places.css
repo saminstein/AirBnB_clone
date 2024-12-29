@@ -1,3 +1,7 @@
+article .title_1, .title_2, .title_3 {
+  position: relative;
+}
+
 div.price_by_night {
   min-width: 60px;
   color: #FF5A5F;
@@ -9,11 +13,13 @@ div.price_by_night {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 298px;
-  left: 350px;
-  padding: 7px;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-30%);
+  padding: 2px;
 }
 
+/*
 div.information {
   height: 80px;
   border-bottom: 3px solid #DDDDDD;
@@ -40,7 +46,7 @@ p {
   display: block;
   
 }
-
+*/
 
 
 

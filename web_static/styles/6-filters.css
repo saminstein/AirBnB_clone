@@ -1,8 +1,3 @@
-div.container {
-	max-width: 1000px;
-	margin: 30px auto;
-}
-
 section.filters {
 	background-color: white;
 	height: 70px;
@@ -26,6 +21,7 @@ section.filters button {
 
 button:hover {
   opacity: 0.9;
+  cursor: pointer;
 }
 
 .locations, .amenities {
@@ -62,6 +58,7 @@ ul.popover {
 	bottom: 22px;
 	display: none;
 	z-index: 1;
+  cursor: pointer;
 }
 
 .locations:hover > .popover {
@@ -96,7 +93,6 @@ ul.popover {
 .amenities .popover li {
   margin: 12px 12px;
   line-height: 9px;
-  cursor: pointer;
 }
 
 
