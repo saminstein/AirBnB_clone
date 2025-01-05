@@ -1,0 +1,48 @@
+div.guests {
+  background-image: url(../images/icon_group.png);
+}
+
+div.bedroom {
+  background-image: url(../images/icon_bed.png);
+}
+
+div.bathroom {
+  background-image: url(../images/icon_bath.png);
+}
+
+p {
+  margin: 0;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+div.user {
+  margin-top: 20px;
+  float: left;
+}
+
+div.description {
+  float: left;
+}
+
+.description > p {
+  text-align: left;
+}
+
+article .amenities {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.amenities ul {
+  padding: 0px;
+  list-style: none;
+}
+
+
+.amenities li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+}
