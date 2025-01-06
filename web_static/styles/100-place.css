@@ -28,21 +28,3 @@ div.description {
 .description > p {
   text-align: left;
 }
-
-article .amenities {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.amenities ul {
-  padding: 0px;
-  list-style: none;
-}
-
-
-.amenities li {
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 5px;
-}
