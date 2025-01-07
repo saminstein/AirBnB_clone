@@ -29,7 +29,7 @@ div.description {
   text-align: left;
 }
 
-article .amenities {
+article .amenities, article .reviews {
   margin: 40px 0px 40px;
   padding: 0px;
   text-align: left;
@@ -40,26 +40,38 @@ article .amenities {
   margin-left: 0px;
   font-size: 16px;
   border-bottom: 1px solid #DDDDDD;
-  padding-bottom: 20px;
+  padding-bottom: 8px;
 }
 
-ul.icobox {
+article .amenities ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 10px 0 0 0;
 }
 
-ul.icobox li {
-  display: flex;
-  align-items: center;
-}
-
-.amenities .icon {
-  width: 50px;
-  height: 50px;
+article .amenities ul li {
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 30px 30px;
-  background-image: url(../images/icon_tv.png);
+}
 
+
+.ic li {
+  display: flex;
+  align-items: center;
+  padding-left: 45px;
+  white-space: nowrap;
+}
+.amenities .tv {
+  background-image: url(../images/icon_tv.png);
+}
+
+.amenities .wifi {
+  background-image: url(../images/icon_wifi.png);
+}
+
+.amenities .pet {
+  background-image: url(../images/icon_pets.png);
 }
