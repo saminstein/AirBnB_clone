@@ -29,21 +29,25 @@ div.description {
   text-align: left;
 }
 
-article .amenities, article .reviews {
-  margin: 40px 0px 40px;
+article .amenities,
+article .reviews {
+  margin: 50px 0px 70px;
   padding: 0px;
   text-align: left;
   width: 100%;
+  height: inherit;
 }
 
-.amenities h2 {
+.amenities h2,
+.reviews h2 {
   margin-left: 0px;
   font-size: 16px;
   border-bottom: 1px solid #DDDDDD;
   padding-bottom: 8px;
 }
 
-article .amenities ul {
+article .amenities ul,
+article .reviews ul {
   list-style-type: none;
   margin: 0;
   padding: 10px 0 0 0;
@@ -57,13 +61,24 @@ article .amenities ul li {
   background-size: 30px 30px;
 }
 
-
 .ic li {
   display: flex;
   align-items: center;
   padding-left: 45px;
   white-space: nowrap;
 }
+
+.reviews h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.reviews ul li, 
+.reviews p {
+  font-size: 12px;
+  text-align: left;
+}
+
 .amenities .tv {
   background-image: url(../images/icon_tv.png);
 }
